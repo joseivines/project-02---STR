@@ -45,7 +45,7 @@ int main()
 	int count, cargaz;
 	int numero;
 
-	arq = fopen("carga_de_teste.txt", "r");
+	arq = fopen("arquivo_com_cargas.txt.txt", "r");
 
 	if (arq == NULL)  // verifica se houve erro na abertura
 	{
