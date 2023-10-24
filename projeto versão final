@@ -89,7 +89,7 @@ int main()
 	}
 
 
-	arq = fopen("carga_de_teste.txt", "r");
+	arq = fopen("arquivo_com_cargas.txt", "r");
 	if (arq == NULL)
 	{
 		perror("Erro ao abrir o arquivo");
@@ -387,4 +387,3 @@ int ciclo_menor(int array_periodo[], int array_deadline[], int contador, int res
 	}
 	return 0;
 }
-
