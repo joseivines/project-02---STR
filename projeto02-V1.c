@@ -20,8 +20,6 @@ int ciclo_menor(int array_periodo[], int array_deadline[], int contador, int res
 
 int main()
 {
-//valores que usarei nos testes, sendo os que virão do txt, a carga, a quantidade de tarefas, o tempo, o periodo e as deadlines
-
 	int  cont, resultado_mmc, resultado_menor, maior_tempo;
 	int tarefas;
 	int contador = 0;
@@ -63,9 +61,7 @@ int main()
 	}
 
 	fclose(arq);
-
-	//printf( "Tem [%d] cargas no arquivo\n", total_cargas);
-	//printf( "O numero maximo de tarefas por carga e: [%d]\n ", total_tarefas);
+	
 	cargas_de_trabalho carga[total_cargas][total_tarefas];
 
 	//array responsavel por guardar os periodos
@@ -105,7 +101,6 @@ int main()
 			carga[i][j].nome_carga = carg;
 			carga[i][j].nome_tarefa = numero;
 		}
-		//printf("\n");
 	}
 
 	fclose(arq);
@@ -115,7 +110,6 @@ int main()
 
 	for(cont = 1; cont <= total_cargas; cont++)
 	{
-
 		contador = 0;
 		maior_tempo = carga[cont - 1][0].temp_execu;
 		div_t_p = 0;
@@ -124,8 +118,7 @@ int main()
 		periodo_t = 0;
 		deadline_t = 0;
 		k = 0;
-
-
+		
 		while(carga[cont - 1][k].nome_carga != 0 && k < total_tarefas)
 			k++;
 
@@ -137,7 +130,6 @@ int main()
 			{
 				maior_tempo = carga[cont - 1][contador].temp_execu;
 			}
-
 			array_periodo[contador] = carga[cont - 1][contador].periodo;
 			array_deadline[contador] = carga[cont - 1][contador].deadline;
 			div_t_p = div_t_p + (((float)carga[cont - 1][contador].temp_execu) / ( carga[cont - 1][contador].periodo));
@@ -160,7 +152,6 @@ int main()
 //teste para executivo cíclico
 		if(div_t_p > 1)
 		{
-
 			printf("\n\nCarga %d\n", cont);
 			printf("Executivo: NAO\n");
 			printf("Ciclo maior: 0\n");
@@ -168,24 +159,17 @@ int main()
 			printf("EDF: NAO\n");
 			printf("RM: NAO");
 		}
-
 		else
 		{
 			printf("\n\nCarga %d ", cont);
 			printf("\nExecutivo: SIM");
-
 //mínimo multiplo comum dos periodos para o ciclo maior
-
 			resultado_mmc = mmcArray(array_periodo, contador);
 			printf("\n  Ciclo maior: %d ", resultado_mmc);
-
 //Aqui seria o máximo divisor comum dos periodos para o ciclo menor
-
 			resultado_menor = ciclo_menor(array_periodo, array_deadline, contador, resultado_mmc, maior_tempo);
 			printf("\n  Ciclo menor: %d ", resultado_menor);
-
 //testes do EDF, são 3 diferentes, uma para cada tipo de valor de deadline
-
 			if(deadline_t == periodo_t)
 			{
 				if(div_t_p <= 1)
@@ -221,10 +205,7 @@ int main()
 					printf("\nEDF: INCONCLUSIVO\n");
 				}
 			}
-
-
 //teste do RM
-
 			eleva = 1.0 / tarefas;
 			auxiliar = pow(2.0, eleva);
 
