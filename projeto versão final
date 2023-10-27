@@ -105,7 +105,7 @@ int main()
 	{
 		carg++;
 
-		for(j = 0 ; (fscanf(arq, "%s %d %d %d", &tarefa, &carga[i][j].temp_execu, &carga[i][j].periodo, &carga[i][j].deadline) == 4) && feof(arq) == 0  ; j++)
+		for(j = 0 ; (fscanf(arq, "%s %d %d %d", tarefa, &carga[i][j].temp_execu, &carga[i][j].periodo, &carga[i][j].deadline) == 4) && feof(arq) == 0  ; j++)
 		{
 			numero = tarefa[1] - '0';
 			carga[i][j].nome_carga = carg;
